@@ -32,5 +32,30 @@ pipeline {
         sh 'sudo chef gem install kitchen-docker'
       }
     }
+    stage('Run kitchen destroy'){
+      steps {
+        sh 'kitchen destroy'
+      }
+    }
+    stage('Run kitchen create'){
+      steps {
+        sh 'kitchen create'
+      }
+    }
+    stage('Run kitchen converge'){
+      steps {
+        sh 'kitchen converge'
+      }
+    }
+    stage('Run kitchen verify'){
+      steps {
+        sh 'kitchen verify'
+      }
+    }
+    stage('kitchen destroy'){
+      steps {
+        sh 'kitchen destroy'
+      }
+    }
   }
 }
