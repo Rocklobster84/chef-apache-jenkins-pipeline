@@ -15,6 +15,7 @@ pipeline {
           sh 'sudo chef env --chef-license accept'
         }
       }
+    }
     stage('Third Stage') {
       steps {
         echo "Third stage"
