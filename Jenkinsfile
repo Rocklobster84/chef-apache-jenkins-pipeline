@@ -57,16 +57,15 @@ pipeline {
         sh 'kitchen destroy'
       }
     }
-      stages {
-      stage('Send Slack Notification') {
-          steps {
-            slackSend color: 'warning', message: "Steph: Please approve ${env.JOB_NAME}${env.BUILD_NUMBER}(<${env.JOB_URL} | Open>)"
-          }
+    stage('Send Slack Notification') {
+      steps {
+        slackSend color: 'warning', message: "Steph: Please approve ${env.JOB_NAME}${env.BUILD_NUMBER}(<${env.JOB_URL} | Open>)"
       }
-      stage('Request Input') {
-          steps {
-              input 'Please approve or deny this build'
-          }
+    }
+    stage('Request Input') {
+      steps {
+        input 'Please approve or deny this build'
       }
+    }
   }
 }
