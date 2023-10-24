@@ -60,7 +60,7 @@ pipeline {
     stage('Create Chef PEM') {
       steps {
         withCredentials([file(credentialsId: 'chef-pem', variable: 'CHEF_PEM')]) {
-          sh 'cat > $WORKSPACE/studentXX.pem < $CHEF_PEM'
+          sh 'cat > $WORKSPACE/student01.pem < $CHEF_PEM'
         }
       }
     }
