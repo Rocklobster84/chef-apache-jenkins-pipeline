@@ -66,6 +66,7 @@ pipeline {
     }
     stage('Upload to Chef Infra Server') {
       steps {
+        sh 'knife ssl fetch'
         sh 'chef install $WORKSPACE/Policyfile.rb -c $WORKSPACE/config.rb'
         sh 'chef push prod $WORKSPACE/Policyfile.lock.json -c $WORKSPACE/config.rb'
       }
