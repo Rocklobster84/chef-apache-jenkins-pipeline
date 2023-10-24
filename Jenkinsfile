@@ -26,7 +26,8 @@ pipeline {
         git branch: 'main', credentialsId: 'git-repo-creds', url: 'git@github.com:Rocklobster84/beta2-jenkins-apache.git'
       }
     }
-    stage('Install Kitchen Docker Gem') {
+    
+    /* stage('Install Kitchen Docker Gem') {
       steps {
         sh 'sudo apt-get install -y make gcc'
         sh 'sudo chef gem install kitchen-docker'
@@ -57,6 +58,7 @@ pipeline {
         sh 'kitchen destroy'
       }
     }
+    */
     stage('Create Chef PEM') {
       steps {
         withCredentials([file(credentialsId: 'chef-pem', variable: 'CHEF_PEM')]) {
