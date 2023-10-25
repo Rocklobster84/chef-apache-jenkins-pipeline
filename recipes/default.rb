@@ -12,3 +12,5 @@ end
 service 'apache2' do
     action [ :enable, :start ]
 end
+
+#Adding a comment for a test
