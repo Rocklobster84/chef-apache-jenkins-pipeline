@@ -68,8 +68,8 @@ pipeline {
     }
     stage('Upload to Chef Infra Server') {
       steps {
-        sh 'chef install /opt/jenkins/workspace/chef-pipeline/Policyfile.rb -c /opt/jenkins/workspace/chef-pipeline/config.rb'
-        sh 'sudo chef push prod /opt/jenkins/workspace/chef-pipeline/Policyfile.lock.json -c /opt/jenkins/workspace/chef-pipeline/config.rb'
+        sh 'chef install $WORKSPACE/Policyfile.rb -c $WORKSPACE/config.rb'
+        sh 'sudo chef push prod $WORKSPACE/Policyfile.lock.json -c $WORKSPACE/config.rb'
       }
     }
     stage('Converge Chef-managed webserver nodes') {
