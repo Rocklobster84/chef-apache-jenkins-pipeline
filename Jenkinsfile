@@ -27,7 +27,7 @@ pipeline {
       }
     }
     
-    /* stage('Install Kitchen Docker Gem') {
+    stage('Install Kitchen Docker Gem') {
       steps {
         sh 'sudo apt-get install -y make gcc'
         sh 'sudo chef gem install kitchen-docker'
@@ -58,7 +58,6 @@ pipeline {
         sh 'kitchen destroy'
       }
     }
-    */
     stage('Create Chef PEM') {
       steps {
         withCredentials([file(credentialsId: 'chef-pem', variable: 'CHEF_PEM')]) {
